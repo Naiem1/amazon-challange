@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './assets/styles/style.css';
+import App from './app/App';
 import reportWebVitals from './reportWebVitals';
+import reducer, { initialState } from './contextAPI/reducer';
+import { StateProvider } from './contextAPI/StateProvider';
+console.log('StateProvider>>', StateProvider);
+console.log('initialState>>', initialState);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <App demoProps={'demoProps'} key={1} />
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
